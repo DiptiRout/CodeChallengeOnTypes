@@ -7,7 +7,7 @@ Develop a **Swift** App, to download, save, and display contents of a list.
 
 *Expected behavior:*
 
-Upon launching the app, it should query this  [link](https://raw.githubusercontent.com/AxxessTech/Mobile-Projects/master/challenge.json) , which will provide you the necessary content to populate the app in the JSON format.
+Upon launching the app, it should query a link, which will provide you the necessary content to populate the app in the JSON format.
 **Programmatically (no storyboards)** create the user interface that allows the user to:
  
 1. see all JSON fields in a clean and concise format
@@ -37,6 +37,3 @@ The code will be evaluated based on:
 * Object Oriented Programing
 * Commenting
 * iOS best practices
-
-## Submission
-You should provide a URL to a Git repository of yours when you complete. If it is a private repo on GitHub, you can add **MobileAxxess** account to your collaborators when complete.
