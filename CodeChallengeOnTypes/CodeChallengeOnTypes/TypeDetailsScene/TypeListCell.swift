@@ -10,6 +10,7 @@ import UIKit
 
 class TypeListCell: UICollectionViewCell {
         
+    // MARK: UI
     lazy var mainImageView:UIImageView = {
         let iv = UIImageView(frame:.zero)
         iv.contentMode = .scaleAspectFit

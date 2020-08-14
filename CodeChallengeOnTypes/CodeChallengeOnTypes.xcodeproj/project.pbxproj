@@ -133,6 +133,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		C4AC2F8824E6B828002B440D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C46B774124E64C6F004B59A8 /* ChallengeDataClass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C4BB9F4D24E52AE700F3DBDF = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +174,10 @@
 		C4BB9F7424E52F5700F3DBDF /* TypeListScene */ = {
 			isa = PBXGroup;
 			children = (
+				C4AC2F8824E6B828002B440D /* Model */,
 				C4BB9F5D24E52AE700F3DBDF /* TypeListVC.swift */,
 				C4BB9F7524E532D200F3DBDF /* TypeListVM.swift */,
 				C4BB9F7024E52C2500F3DBDF /* MainCollectionViewCell.swift */,
-				C46B774124E64C6F004B59A8 /* ChallengeDataClass.swift */,
 			);
 			path = TypeListScene;
 			sourceTree = "<group>";
