@@ -9,6 +9,19 @@
 import UIKit
 
 public class ChallengeDataClass: NSObject, NSCoding, Decodable {
+    
+    var id: String?
+    var type: String?
+    var date: String?
+    var data: String?
+    
+    init(id: String, type: String, date: String, data: String) {
+        self.id = id
+        self.type = type
+        self.date = date
+        self.data = data
+    }
+    
     public func encode(with coder: NSCoder) {
         coder.encode(id, forKey: "id")
         coder.encode(type, forKey: "type")
@@ -22,18 +35,5 @@ public class ChallengeDataClass: NSObject, NSCoding, Decodable {
         let date = coder.decodeObject(forKey: "date") as? String ?? "NA"
         let data = coder.decodeObject(forKey: "data") as? String ?? "NA"
         self.init(id: id, type: type, date: date, data: data)
-    }
-    
-    
-    var id: String?
-    var type: String?
-    var date: String?
-    var data: String?
-    
-    init(id: String, type: String, date: String, data: String) {
-        self.id = id
-        self.type = type
-        self.date = date
-        self.data = data
     }
 }

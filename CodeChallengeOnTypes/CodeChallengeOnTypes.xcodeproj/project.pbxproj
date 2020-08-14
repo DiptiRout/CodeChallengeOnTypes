@@ -10,7 +10,6 @@
 		6B0518B256668EB8807DA17F /* Pods_CodeChallengeOnTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9127AB3C856F051C8349C0A3 /* Pods_CodeChallengeOnTypes.framework */; };
 		C40A4F5024E59E2F00FF33A7 /* TypeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A4F4F24E59E2F00FF33A7 /* TypeListCell.swift */; };
 		C40A4F5424E59F4100FF33A7 /* TypeDetailsTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A4F5324E59F4100FF33A7 /* TypeDetailsTextVC.swift */; };
-		C4185A1424E64E74009E2E7A /* CDChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4185A1324E64E74009E2E7A /* CDChallenge.swift */; };
 		C46B773324E5A336004B59A8 /* TypeTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B773224E5A336004B59A8 /* TypeTextCell.swift */; };
 		C46B773524E646EB004B59A8 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B773424E646EB004B59A8 /* PersistentStorage.swift */; };
 		C46B773824E64A1C004B59A8 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46B773724E64A1C004B59A8 /* BaseRepository.swift */; };
@@ -37,7 +36,6 @@
 		9127AB3C856F051C8349C0A3 /* Pods_CodeChallengeOnTypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeChallengeOnTypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A4F4F24E59E2F00FF33A7 /* TypeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListCell.swift; sourceTree = "<group>"; };
 		C40A4F5324E59F4100FF33A7 /* TypeDetailsTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailsTextVC.swift; sourceTree = "<group>"; };
-		C4185A1324E64E74009E2E7A /* CDChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDChallenge.swift; sourceTree = "<group>"; };
 		C46B773224E5A336004B59A8 /* TypeTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTextCell.swift; sourceTree = "<group>"; };
 		C46B773424E646EB004B59A8 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 		C46B773724E64A1C004B59A8 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
@@ -97,14 +95,6 @@
 			path = TypeDetailsTextScene;
 			sourceTree = "<group>";
 		};
-		C4185A1224E64E4F009E2E7A /* CDExtentions */ = {
-			isa = PBXGroup;
-			children = (
-				C4185A1324E64E74009E2E7A /* CDChallenge.swift */,
-			);
-			path = CDExtentions;
-			sourceTree = "<group>";
-		};
 		C4185A1524E64E8E009E2E7A /* CDChallengeEntity */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				C4DDB10624E65976003A6AC6 /* Managers */,
-				C4185A1224E64E4F009E2E7A /* CDExtentions */,
 				C4185A1524E64E8E009E2E7A /* CDChallengeEntity */,
 				C46B773A24E64A60004B59A8 /* Repository */,
 				C46B773924E64A4E004B59A8 /* Supports */,
@@ -341,7 +330,6 @@
 				C481ECDD24E66F4200A56C22 /* CDChallenge+CoreDataProperties.swift in Sources */,
 				C4BB9F7624E532D200F3DBDF /* TypeListVM.swift in Sources */,
 				C46B774424E64CA8004B59A8 /* ChallengeDataRepository.swift in Sources */,
-				C4185A1424E64E74009E2E7A /* CDChallenge.swift in Sources */,
 				C46B774024E64C16004B59A8 /* ChallengeDataManager.swift in Sources */,
 				C40A4F5024E59E2F00FF33A7 /* TypeListCell.swift in Sources */,
 				C46B773324E5A336004B59A8 /* TypeTextCell.swift in Sources */,

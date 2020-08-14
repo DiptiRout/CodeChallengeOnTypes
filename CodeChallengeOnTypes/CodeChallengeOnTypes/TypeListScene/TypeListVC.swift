@@ -10,8 +10,6 @@ import UIKit
 
 class TypeListVC: UICollectionViewController {
     
-    //MARK : Properites
-    let cellId = "Cell"
     private let viewModel = TypeListVM()
 
     override func viewDidLoad() {
@@ -28,15 +26,18 @@ class TypeListVC: UICollectionViewController {
     }
     
     //MARK : Setup Methods
+    
+    /// Customize the navigation bar.
     fileprivate func setupNavigationBarController() {
         navigationItem.title = "Lists"
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    /// Setting the collection view.
     fileprivate func setupCollectionView() {
         collectionView?.backgroundColor = .white
-        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
         collectionView.alwaysBounceVertical = true
     }
     
@@ -49,6 +50,9 @@ class TypeListVC: UICollectionViewController {
 }
 
 extension TypeListVC: TypeListDelegate {
+    
+    //MARK : TypeList Delegate Methods
+
     func noDataFound(errorMsg: String) {
         debugPrint("Error")
     }
@@ -62,11 +66,13 @@ extension TypeListVC: TypeListDelegate {
 extension TypeListVC: UICollectionViewDelegateFlowLayout {
     
     //MARK : CollectionView Delegate Methods
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.groups.count
     }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseID, for: indexPath) as! MainCollectionViewCell
         cell.editButton.addTarget(self, action: #selector(editCellButton), for: .touchUpInside)
         let keys = Array(viewModel .groups.keys)
         cell.listNameLabel.text = keys[indexPath.item] ?? "NA"
@@ -93,14 +99,12 @@ extension TypeListVC: UICollectionViewDelegateFlowLayout {
             vc.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.frame.width / 2) - 20, height: 110)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }

@@ -9,9 +9,7 @@
 import UIKit
 
 class TypeTextCell: UITableViewCell {
-    
-    static let ID = "TypeTextCell"
-    
+        
     lazy var containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10

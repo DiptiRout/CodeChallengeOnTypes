@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// This protocol holds the generic basic methods for code data operations.
 protocol BaseRepository {
 
     associatedtype T

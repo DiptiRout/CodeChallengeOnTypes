@@ -15,22 +15,22 @@ class NetworkReachability {
     private var monitor: NWPathMonitor?
     private var isMonitoring = false
     
-    // use it to notified that monitoring did start.
+    /// use it to notified that monitoring did start.
     var didStartMonitoringHandler: (() -> Void)?
     
-    // use it to notified that monitoring did stopped.
+    /// use it to notified that monitoring did stopped.
     var didStopMonitoringHandler: (() -> Void)?
     
-    // use it to monitor the network status changes.
+    /// use it to monitor the network status changes.
     var netStatusChangeHandler: (() -> Void)?
     
-    // use it to check network is connected or not.
+    /// use it to check network is connected or not.
     var isConnected: Bool {
         guard let monitor = monitor else { return false }
         return monitor.currentPath.status == .satisfied
     }
     
-    // current network type like cellular, wi-fi or any other...
+    /// current network type like cellular, wi-fi or any other...
     var interfaceType: NWInterface.InterfaceType? {
         guard let _ = monitor else { return nil }
         return self.availableInterfacesTypes?.first
@@ -44,7 +44,7 @@ class NetworkReachability {
     
     private init() { }
     
-    // call it first to start monitoring the network connection.
+    /// call it first to start monitoring the network connection.
     func startMonitoring() {
         
         // if already monitoring, return it.
@@ -62,7 +62,7 @@ class NetworkReachability {
         didStartMonitoringHandler?()
     }
     
-    // call it to stop the monitoring.
+    /// call it to stop the monitoring.
     func stopMonitoring() {
         if isMonitoring, let monitor = monitor {
             monitor.cancel()

@@ -13,6 +13,10 @@ import CoreData
 
 struct ChallengeDataRepository: BaseRepository {
 
+    /// This method saves the custom data in Database.
+    /// - Parameters:
+    ///   - record: Custom model class.
+    ///
     func create(record: [ChallengeDataClass]) {
         
         let cdChallenge = CDChallenge(context: PersistentStorage.shared.context)
@@ -21,6 +25,10 @@ struct ChallengeDataRepository: BaseRepository {
         PersistentStorage.shared.saveContext()
     }
     
+    /// This method get the custom data from Database.
+    ///
+    /// - Returns: Custom data class array.
+    ///
     func getAll() -> [ChallengeDataClass]? {
         
         let records = PersistentStorage.shared.fetchManagedObject(managedObject: CDChallenge.self)
@@ -36,6 +44,10 @@ struct ChallengeDataRepository: BaseRepository {
         return results
     }
     
+    /// This method delete all data from Database.
+    ///
+    /// - Returns: Bool value indicating date is deleted or not.
+    ///
     func deleteAll() -> Bool {
         
         let records = getAllData()
@@ -45,6 +57,10 @@ struct ChallengeDataRepository: BaseRepository {
         return true
     }
     
+    /// This method fetch the entity from Database.
+    ///
+    /// - Returns: The entity object.
+    ///
     private func getAllData() -> CDChallenge?
     {
         let fetchRequest = NSFetchRequest<CDChallenge>(entityName: "CDChallenge")

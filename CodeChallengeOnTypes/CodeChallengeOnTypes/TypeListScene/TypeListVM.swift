@@ -20,6 +20,7 @@ class TypeListVM: NSObject {
     var groups = [String? : [ChallengeDataClass]]()
     let dataManager = ChallengeDataManager()
 
+    /// Get JSON data using Alamofire request.
     func getData() {
         
         AF.request("https://raw.githubusercontent.com/AxxessTech/Mobile-Projects/master/challenge.json").responseDecodable(of: [ChallengeDataClass].self) { [weak self] response in
@@ -49,7 +50,6 @@ class TypeListVM: NSObject {
         
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         print(paths[0])
-
     }
     
     func showOfflineData() {

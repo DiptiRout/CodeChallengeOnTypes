@@ -9,9 +9,7 @@
 import UIKit
 
 class TypeListCell: UICollectionViewCell {
-    
-    static  let ID = "TypeListCell"
-    
+        
     lazy var mainImageView:UIImageView = {
         let iv = UIImageView(frame:.zero)
         iv.contentMode = .scaleAspectFit

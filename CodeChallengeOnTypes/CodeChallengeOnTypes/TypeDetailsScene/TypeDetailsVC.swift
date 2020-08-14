@@ -24,7 +24,6 @@ class TypeDetailsVC: UIViewController {
         super.viewDidLoad()
         
         setupNavigationBarController()
-        //setupUI()
         setupCV()
     }
     
@@ -41,7 +40,6 @@ class TypeDetailsVC: UIViewController {
         cellLayout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
         cellLayout.itemSize = CGSize(width: view.bounds.width - 32, height: 220)
         
-        
         // CollectionView
         feedCV = UICollectionView(frame: .zero, collectionViewLayout: cellLayout)
         self.view.addSubview(feedCV)
@@ -51,31 +49,26 @@ class TypeDetailsVC: UIViewController {
             $0.width.equalToSuperview()
             $0.bottom.equalTo(view.snp.bottom)
         }
-        
-        feedCV.register(TypeListCell.self, forCellWithReuseIdentifier: TypeListCell.ID)
-        
+        feedCV.register(TypeListCell.self, forCellWithReuseIdentifier: TypeListCell.reuseID)
         feedCV.backgroundColor = .white
         feedCV.showsVerticalScrollIndicator = true
         feedCV.isScrollEnabled = true
         feedCV.bounces = true
         feedCV.delegate = self
         feedCV.dataSource = self
-        
-        
-    }
-    
-    fileprivate func setupUI() {
-        view.backgroundColor = .white
     }
 }
 
 extension TypeDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    //MARK : CollectionView Delegate Methods
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return challengeData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TypeListCell.ID, for: indexPath) as! TypeListCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TypeListCell.reuseID, for: indexPath) as! TypeListCell
         cell.setupData(data: challengeData[indexPath.item])
         return cell
         

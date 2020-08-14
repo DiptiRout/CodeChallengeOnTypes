@@ -17,6 +17,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: UI
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -62,6 +63,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 3
         self.clipsToBounds = false
     }
+    
     func cellRandomBackgroundColors() -> [UIColor] {
         //Colors
         let red = [#colorLiteral(red: 0.9654200673, green: 0.1590853035, blue: 0.2688751221, alpha: 1),#colorLiteral(red: 0.7559037805, green: 0.1139892414, blue: 0.1577021778, alpha: 1)]
@@ -82,10 +84,12 @@ class MainCollectionViewCell: UICollectionViewCell {
         let randomColors = colorsTable.values.randomElement()
         return randomColors!
     }
+    
     func gradientBackgroundColor() {
         let colors = cellRandomBackgroundColors()
         self.contentView.setGradientBackgroundColor(colorOne: colors[0], colorTow: colors[1])
     }
+    
     func roundCorner() {
         self.contentView.layer.cornerRadius = 12.0
         self.contentView.layer.masksToBounds = true

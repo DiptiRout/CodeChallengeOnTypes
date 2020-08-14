@@ -57,9 +57,12 @@ extension UIView {
         
         layer.insertSublayer(gradientLayer, at: 0)
     }
-}
-
-extension UIView {
+    
+    static var reuseID: String {
+        get{
+            return String(describing: self)
+        }
+    }
     
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?,
                 bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?,
@@ -120,5 +123,4 @@ extension UIView {
         }
         return rightAnchor
     }
-    
 }
