@@ -42,7 +42,9 @@ class TypeListVM: NSObject {
             $0.type
         }
         self.groups = groups
-        self.delegate?.onDataFetch()
+        DispatchQueue.main.async {
+            self.delegate?.onDataFetch()
+        }
     }
     
     func saveData(record: [ChallengeDataClass]) {
@@ -58,4 +60,18 @@ class TypeListVM: NSObject {
         }
         self.groupData(data)
     }
+    
+    func observeNetworkChange() {
+        
+        NetworkReachability.shared.netStatusChangeHandler = {
+            
+            let networkType = NetworkReachability.shared.interfaceType
+            
+            if networkType == nil {
+                self.showOfflineData()
+            }
+        }
+    }
+    
+    
 }

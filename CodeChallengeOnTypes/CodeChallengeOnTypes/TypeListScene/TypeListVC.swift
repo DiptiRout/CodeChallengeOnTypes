@@ -15,6 +15,7 @@ class TypeListVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        viewModel.observeNetworkChange()
         if NetworkReachability.shared.isConnected {
             viewModel.getData()
         }
@@ -36,6 +37,7 @@ class TypeListVC: UICollectionViewController {
     
     /// Setting the collection view.
     fileprivate func setupCollectionView() {
+        view.backgroundColor = .white
         collectionView?.backgroundColor = .white
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
         collectionView.alwaysBounceVertical = true
