@@ -1,0 +1,6 @@
+framework module Pods_CodeChallengeOnTypes {
+  umbrella header "Pods-CodeChallengeOnTypes-umbrella.h"
+
+  export *
+  module * { export * }
+}
