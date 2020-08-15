@@ -14,6 +14,7 @@ public class ChallengeDataClass: NSObject, NSCoding, Decodable {
     var type: String?
     var date: String?
     var data: String?
+    var imageData: Data?
     
     init(id: String, type: String, date: String, data: String) {
         self.id = id
@@ -27,6 +28,7 @@ public class ChallengeDataClass: NSObject, NSCoding, Decodable {
         coder.encode(type, forKey: "type")
         coder.encode(date, forKey: "date")
         coder.encode(data, forKey: "data")
+        coder.encode(imageData, forKey: "imageData")
     }
     
     public required convenience init?(coder: NSCoder) {

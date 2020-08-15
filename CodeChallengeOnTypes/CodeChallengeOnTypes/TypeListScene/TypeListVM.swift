@@ -32,7 +32,7 @@ class TypeListVM: NSObject {
             if let isDeleted = self?.dataManager.deleteAll(), isDeleted {
                 debugPrint(isDeleted)
             }
-            self?.saveData(record: data)
+            self?.mapImageData(data: data)            
             self?.groupData(data)
         }
     }
@@ -45,6 +45,24 @@ class TypeListVM: NSObject {
         DispatchQueue.main.async {
             self.delegate?.onDataFetch()
         }
+    }
+    
+    private func mapImageData(data: [ChallengeDataClass]) {
+        var newData = [ChallengeDataClass]()
+        newData = data
+        
+        let queue = OperationQueue()
+        let blockOperation1 = BlockOperation {
+            newData.forEach {
+                if $0.type == "image" {
+                    $0.imageData = $0.data?.getDataFromURL()
+                }
+            }
+        }
+        blockOperation1.completionBlock = { [weak self] in
+            self?.saveData(record: data)
+        }
+        queue.addOperation(blockOperation1)
     }
     
     func saveData(record: [ChallengeDataClass]) {

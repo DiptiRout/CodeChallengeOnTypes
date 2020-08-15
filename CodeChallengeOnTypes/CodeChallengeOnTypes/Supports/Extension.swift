@@ -124,3 +124,15 @@ extension UIView {
         return rightAnchor
     }
 }
+
+extension String {
+    func getDataFromURL() -> Data? {
+        guard let url = URL(string: self) else { return nil }
+        if let data = try? Data(contentsOf: url) {
+            return data
+        }
+        else {
+            return nil
+        }
+    }
+}
