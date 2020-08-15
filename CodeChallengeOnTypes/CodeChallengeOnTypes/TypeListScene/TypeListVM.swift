@@ -32,11 +32,12 @@ class TypeListVM: NSObject {
             if let isDeleted = self?.dataManager.deleteAll(), isDeleted {
                 debugPrint(isDeleted)
             }
-            self?.mapImageData(data: data)            
+            self?.mapImageData(data: data)
             self?.groupData(data)
         }
     }
     
+    /// This method groups the data to create main screen UI of application.
     private func groupData(_ challengeData: [ChallengeDataClass]) {
         let groups = Dictionary(grouping: challengeData) {
             $0.type
@@ -47,6 +48,7 @@ class TypeListVM: NSObject {
         }
     }
     
+    /// Before saving the data this method maps the image data to data model.
     private func mapImageData(data: [ChallengeDataClass]) {
         var newData = [ChallengeDataClass]()
         newData = data
@@ -65,13 +67,15 @@ class TypeListVM: NSObject {
         queue.addOperation(blockOperation1)
     }
     
+    /// Saves the data using core data and prints a path of the .sqlite file.
     func saveData(record: [ChallengeDataClass]) {
         dataManager.create(challengeData: record)
         
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        print(paths[0])
+        debugPrint(paths[0])
     }
     
+    /// This will get called when application is in offline mode/
     func showOfflineData() {
         guard let data = dataManager.fetch() else {
             return
@@ -79,8 +83,9 @@ class TypeListVM: NSObject {
         self.groupData(data)
     }
     
+    /// This method observes the network change of the application.
+    /// This will not work for Simultors.
     func observeNetworkChange() {
-        
         NetworkReachability.shared.netStatusChangeHandler = {
             
             let networkType = NetworkReachability.shared.interfaceType

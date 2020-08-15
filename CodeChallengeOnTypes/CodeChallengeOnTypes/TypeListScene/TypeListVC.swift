@@ -46,7 +46,7 @@ class TypeListVC: UICollectionViewController {
     
     //MARK : - Actions
     @objc func editCellButton() {
-        print("Edit")
+        debugPrint("Edit")
     }
 
 }
