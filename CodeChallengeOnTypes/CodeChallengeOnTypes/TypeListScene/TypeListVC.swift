@@ -11,22 +11,33 @@ import UIKit
 class TypeListVC: UICollectionViewController {
     
     private let viewModel = TypeListVM()
+    let activityView = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.observeNetworkChange()
+        setupCollectionView()
+        setupNavigationBarController()
+        showLoader()
         if NetworkReachability.shared.isConnected {
             viewModel.getData()
         }
         else {
             viewModel.showOfflineData()
         }
-        setupCollectionView()
-        setupNavigationBarController()
+       
     }
     
     //MARK : Setup Methods
+    
+    private func showLoader() {
+        self.collectionView.backgroundView = activityView
+        activityView.color = .black
+        activityView.hidesWhenStopped = true
+        activityView.center = self.collectionView.center
+        activityView.startAnimating()
+    }
     
     /// Customize the navigation bar.
     fileprivate func setupNavigationBarController() {
@@ -56,11 +67,24 @@ extension TypeListVC: TypeListDelegate {
     //MARK : TypeList Delegate Methods
 
     func noDataFound(errorMsg: String) {
-        debugPrint("Error")
+        DispatchQueue.main.async { [weak self] in
+            self?.activityView.stopAnimating()
+            debugPrint("Error")
+        }
     }
     
     func onDataFetch() {
-        collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.activityView.stopAnimating()
+            self?.collectionView.reloadData()
+        }
+    }
+    
+    func becameOnline() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityView.startAnimating()
+            self?.viewModel.getData()
+        }
     }
 }
 

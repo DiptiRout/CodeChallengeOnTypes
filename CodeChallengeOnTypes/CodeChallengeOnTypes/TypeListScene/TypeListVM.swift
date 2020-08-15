@@ -12,6 +12,7 @@ import Alamofire
 protocol TypeListDelegate: class {
     func onDataFetch()
     func noDataFound(errorMsg: String)
+    func becameOnline()
 }
 
 class TypeListVM: NSObject {
@@ -43,9 +44,7 @@ class TypeListVM: NSObject {
             $0.type
         }
         self.groups = groups
-        DispatchQueue.main.async {
-            self.delegate?.onDataFetch()
-        }
+        self.delegate?.onDataFetch()
     }
     
     /// Before saving the data this method maps the image data to data model.
@@ -86,12 +85,17 @@ class TypeListVM: NSObject {
     /// This method observes the network change of the application.
     /// This will not work for Simultors.
     func observeNetworkChange() {
-        NetworkReachability.shared.netStatusChangeHandler = {
+        NetworkReachability.shared.netStatusChangeHandler = { [weak self] in
             
             let networkType = NetworkReachability.shared.interfaceType
             
             if networkType == nil {
-                self.showOfflineData()
+                self?.showOfflineData()
+            }
+            else {
+                if self?.groups.count == 0 {
+                    self?.delegate?.becameOnline()
+                }
             }
         }
     }
