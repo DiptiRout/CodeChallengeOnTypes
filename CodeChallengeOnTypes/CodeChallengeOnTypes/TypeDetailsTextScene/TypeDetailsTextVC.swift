@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+protocol ChallaengeDelegate: class {
+    func refreshData(id: String)
+}
+
+
 class TypeDetailsTextVC: UITableViewController {
 
     var navTitle = ""
@@ -57,5 +63,31 @@ class TypeDetailsTextVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailsVC()
+        vc.challengeData = challengeData[indexPath.row]
+        vc.viewModel.cDelegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+extension TypeDetailsTextVC: ChallaengeDelegate {
+    func refreshData(id: String) {
+        
+        let alert = UIAlertController(title: "Removed", message: "Text component with id: \(id) has been removed", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        let data = challengeData.filter {
+            $0.id != id
+        }
+        challengeData = data
+        tableView.reloadData()
     }
 }

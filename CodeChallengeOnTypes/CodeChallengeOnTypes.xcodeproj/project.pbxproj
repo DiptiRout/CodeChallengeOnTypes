@@ -28,6 +28,7 @@
 		C4BB9F7124E52C2500F3DBDF /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB9F7024E52C2500F3DBDF /* MainCollectionViewCell.swift */; };
 		C4BB9F7324E52C6300F3DBDF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB9F7224E52C6300F3DBDF /* Extension.swift */; };
 		C4BB9F7624E532D200F3DBDF /* TypeListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB9F7524E532D200F3DBDF /* TypeListVM.swift */; };
+		C4CF23B524F6A7CB007089BD /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF23B424F6A7CB007089BD /* DetailsVC.swift */; };
 		C4F967C124E55A07004A5FA9 /* TypeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F967C024E55A07004A5FA9 /* TypeDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		C4BB9F7024E52C2500F3DBDF /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4BB9F7224E52C6300F3DBDF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C4BB9F7524E532D200F3DBDF /* TypeListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListVM.swift; sourceTree = "<group>"; };
+		C4CF23B424F6A7CB007089BD /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		C4F967C024E55A07004A5FA9 /* TypeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailsVC.swift; sourceTree = "<group>"; };
 		FBCF841CA670C0FA960CC122 /* Pods-CodeChallengeOnTypes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeChallengeOnTypes.release.xcconfig"; path = "Target Support Files/Pods-CodeChallengeOnTypes/Pods-CodeChallengeOnTypes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 				C4F967BE24E55778004A5FA9 /* TypeDetailsScene */,
 				C4BB9F7424E52F5700F3DBDF /* TypeListScene */,
 				C40A4F5124E59E5F00FF33A7 /* Supports */,
+				C4CF23B424F6A7CB007089BD /* DetailsVC.swift */,
 			);
 			path = CodeChallengeOnTypes;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				C4BB9F7624E532D200F3DBDF /* TypeListVM.swift in Sources */,
 				C46B774424E64CA8004B59A8 /* ChallengeDataRepository.swift in Sources */,
 				C46B774024E64C16004B59A8 /* ChallengeDataManager.swift in Sources */,
+				C4CF23B524F6A7CB007089BD /* DetailsVC.swift in Sources */,
 				C40A4F5024E59E2F00FF33A7 /* TypeListCell.swift in Sources */,
 				C46B773324E5A336004B59A8 /* TypeTextCell.swift in Sources */,
 				C46B774224E64C6F004B59A8 /* ChallengeDataClass.swift in Sources */,
